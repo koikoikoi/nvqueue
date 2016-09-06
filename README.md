@@ -8,7 +8,7 @@ it supports a 'take job' operation that is safe with multiple concurrent request
 
 ## Installation and test
 
-Tested on OSX 10.10.5 and Ubunutu 16.04.1.
+Tested on OSX 10.10.5 and Ubuntu 16.04.1 using Chrome 51.0.2704.103.
 
 _Creating a new virtual environment is recommended._
 
