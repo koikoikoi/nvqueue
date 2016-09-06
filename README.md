@@ -24,7 +24,7 @@ _Creating a new virtual environment is recommended._
     # create a superuser if you want to use the Django admin tool at http://localhost:8000/admin/
     # python manage.py createsuperuser 
     
-    python manage.py runserver
+    python manage.py runserver  # make sure port 8000 is not in use or supply a different port
 
 If running server as documented above, prefix endpoints URLs with `http://127.0.0.1:8000/`.
   
