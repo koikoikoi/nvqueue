@@ -18,7 +18,7 @@ _Creating a new virtual environment is recommended._
     cd nvqueue
     
     pip install -r requirements.txt
-    ./manage.py makemigrations nvqueue
+    python manage.py makemigrations nvqueue
     python manage.py migrate --noinput
     
     # create a superuser if you want to use the Django admin tool at http://localhost:8000/admin/
@@ -29,10 +29,15 @@ _Creating a new virtual environment is recommended._
 If running server as documented above, prefix endpoints URLs with `http://127.0.0.1:8000/`.
   
 ## Notes
+
 API users are not authenticated. All operations are available to any requestor.
 
 ## Usage
-Test the API from another terminal (using curl, httpie, etc.) or a web browser. For example to list the queues:
+
+Test the API from another terminal window (using curl, httpie, etc.) or a web browser.
+If using a terminal, make sure you are in the same top-level `nvqueue` directory (there are two directories named 'nvqueue').
+
+For example to list the queues:
 
     curl http://localhost:8000/queues/ | python -m json.tool
 
