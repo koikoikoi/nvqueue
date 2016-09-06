@@ -35,7 +35,6 @@ API users are not authenticated. All operations are available to any requestor.
 ## Usage
 
 Test the API from another terminal window (using curl, httpie, etc.) or a web browser.
-If using a terminal, make sure you are in the same top-level `nvqueue` directory (there are two directories named 'nvqueue').
 
 For example to list the queues:
 
@@ -54,6 +53,8 @@ navigating is not hard. You can also create queues and print jobs.
 
 You can also test the installation by running the included simple test that creates a queue and verifies that it 
 is added to the database and is returned with a GET request.
+
+Make sure you are in the same top-level `nvqueue` directory (there are two directories named 'nvqueue').
 
 `python manage.py test`
 
