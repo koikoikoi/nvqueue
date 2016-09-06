@@ -1,7 +1,7 @@
 # NV print queue manager
 
 NVqueue implements a basic FIFO queuing service for print jobs. It supports
-multiple queues.
+multiple queues. 
 
 In addition to basic add / view / list / delete operations for the queues and jobs,
 it supports a 'take job' operation that is safe with multiple concurrent requests.
@@ -13,21 +13,21 @@ Tested on OSX 10.10.5 and Ubunutu 16.04.1.
 _Creating a new virtual environment is recommended._
 
     cd /tmp  # (or some other writable directory)
-
+    
     git clone https://github.com/koikoikoi/nvqueue.git
     cd nvqueue
-
+    
     pip install -r requirements.txt
     ./manage.py makemigrations nvqueue
     python manage.py migrate --noinput
-
+    
     # create a superuser if you want to use the Django admin tool at http://localhost:8000/admin/
-    # python manage.py createsuperuser
-
+    # python manage.py createsuperuser 
+    
     python manage.py runserver
 
 If running server as documented above, prefix endpoints URLs with `http://127.0.0.1:8000/`.
-
+  
 ## Notes
 API users are not authenticated. All operations are available to any requestor.
 
@@ -44,6 +44,7 @@ See below for how to create queues and print jobs.
 An easy way to explore the API is to visit  [http://localhost:8000/](http://localhost:8000/) with a browser. All resources are hyperlinked so 
 navigating is not hard. You can also create queues and print jobs.
 
+
 ## Test
 
 You can also test the installation by running the included simple test that creates a queue and verifies that it 
@@ -58,7 +59,7 @@ All examples use the httpie command line tool.
 **Create a new print queue:**
 
     http post http://localhost:8000/queues/ name='NVPro 1'
-
+    
 **Example Response:**
 
 ```
@@ -89,7 +90,7 @@ If you try to create another queue with the same name you should get this respon
      http post http://localhost:8000/printjobs/ user='me' filename='foo.text' queue='http://localhost:8000/queues/1/'
     
 **Example Response:**
-
+     
 <pre>
 {
     "created": "2016-09-06T14:37:38.637047Z", 
@@ -207,21 +208,21 @@ Returns API endpoints for queues and print jobs.
 **URL:**
 
   /queues/
-
+  
   /queues/queue_by_name/  # convenience function to find queue by queue name
 
 **Methods**
-
+  
 `GET` | `POST`
-
+  
 **URL Params**
 
 Required for queue_by_name: `name`
 
 **Success Responses**
-
+ 
 `GET http://localhost:8000/queues/queue_by_name/?name='NVPro 1'` 
-
+  
 Code: 200 OK
   
 <pre>
@@ -242,7 +243,7 @@ Code: 200 OK
 `GET queue_by_name`
 
 Code: 200 OK
-
+  
 <pre>
 {
     "id": 7, 
@@ -274,7 +275,7 @@ Code: HTTP 201 Created
         ]
     }
 </pre>
-
+        
 **URL Params**
 
 Required for take_job: `printer`
@@ -315,7 +316,7 @@ Also provides a function for taking a job for printing.
 **Methods**
 
 `GET` | `DELETE` | `POST` | `PUT`
-
+  
 **Data Params:**
 
 Required for take_job: `printer`
@@ -365,13 +366,13 @@ Required for take_job: `printer`
   /printjobs/
 
 **Methods**
-
+  
 `GET` | `POST` | `PUT`
 
 **Success Responses:**
-
+ 
 `GET` 
-
+  
 Code: 200 OK
   
 <pre>
@@ -439,7 +440,7 @@ View / update / delete an individual print job.
     }
    ]
 </pre>
-
+   
   `POST` (add job)
   Code: 201 Created     
 
